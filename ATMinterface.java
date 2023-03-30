@@ -5,13 +5,15 @@ class  BankAccount
     float balance = 100000f;
     String previousTransaction =" ";
     String customerName;
+    String Account_number;
     String customerId;
     int transactions = 0;
     int flag = 0;
 
-    void bankaccount(String cName, String cId) 
+    void bankaccount(String cName, String acc, String cId) 
     {
         customerName = cName;
+        Account_number = acc;
         customerId = cId;
     } 
     void clrscr() 
@@ -108,7 +110,7 @@ class withdraw1 extends deposit1
 		}
 		else 
         {
-			System.out.println("\n"+previousTransaction);
+			System.out.println("\n"+ previousTransaction);
 		}
     }
 }
@@ -157,7 +159,7 @@ class transfer1 extends withdraw1
         System.out.println("\n\n########################################");
         System.out.println("\tWelcome to Bank of India");
         System.out.println("########################################");
-        System.out.print("\nPlease enter your Account Number: ");
+        System.out.print("\nPlease enter your customer id: ");
         String vfy = sc.nextLine();
         if (vfy.equals(customerId)) 
         {
@@ -167,7 +169,7 @@ class transfer1 extends withdraw1
         else
         {
             System.out.println("=========================================");
-            System.out.println("\tInvalid Account Number !!");
+            System.out.println("\tInvalid Id !!");
             System.out.println("=========================================");
             if (flag < 2) {
                 flag++;
@@ -179,7 +181,7 @@ class transfer1 extends withdraw1
     {
         System.out.println("===============================");
         System.out.println("Welcome " + customerName);
-        System.out.println("Your Account number is:  " + customerId);
+        System.out.println("Your Account number is:  " + Account_number);
         System.out.println("===============================");
         boolean isFinished = false;
         while (!isFinished) 
@@ -242,6 +244,7 @@ class transfer1 extends withdraw1
                 System.out.println("============================================================");
                 System.out.println("\n************ THANK YOU FOR USING OUR SERVICES *************\n");
                 System.out.println("============================================================");
+                System.exit(c);
                 return;
                 
                 default:
@@ -260,7 +263,7 @@ public class ATMinterface
     public static void main(String[] args) 
     {
         transfer1 t1 = new transfer1();
-        t1.bankaccount("Samarth Pujari", "13579");
+        t1.bankaccount("Samarth Pujari", "456123", "13579");
         t1.verify();
     }  
 } 
